@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Курсометр — курсы валют ЦБ РФ для Home Assistant</title>
+  <meta name="description" content="Курсометр — интеграция для Home Assistant, которая показывает курс любой валюты ЦБ РФ в рублях.">
+  <link rel="icon" href="icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <img src="icon.png" alt="Курсометр" width="48" height="48">
+        <div>
+          <strong>Курсометр</strong>
+          <span>Курсы валют ЦБ РФ для Home Assistant</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#vozmozhnosti">Возможности</a>
+        <a href="#ustanovka">Установка</a>
+        <a href="https://github.com/Type7178/ha-kursometr">Исходный код</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <img src="icon.png" alt="" class="hero-icon" width="96" height="96">
+      <h1>Курсометр</h1>
+      <p class="lead">Небольшая интеграция для Home Assistant, которая позволяет видеть курсы любых валют в вашем HA (создает сенсоры). Данные берет из API ЦБ РФ.</p>
+      <div class="buttons">
+        <a class="button primary" href="https://my.home-assistant.io/redirect/hacs_repository/?owner=Type7178&amp;repository=ha-kursometr&amp;category=integration">Добавить в HACS</a>
+        <a class="button" href="https://github.com/Type7178/ha-kursometr">Открыть репозиторий</a>
+      </div>
+      <p class="version">Версия 1.0.0 · Home Assistant 2024.6.0+</p>
+    </section>
+
+    <section id="vozmozhnosti">
+      <h2>Возможности</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Все валюты ЦБ</h3>
+          <p>Список валют подтягивается из API Банка России. Если ЦБ добавит валюту — она сама появится в мастере настройки.</p>
+        </div>
+        <div class="card">
+          <h3>Настройка в интерфейсе</h3>
+          <p>Никакого YAML. Выбираете валюту и интервал обновления в секундах — и получаете сенсор с нормальным идентификатором.</p>
+        </div>
+        <div class="card">
+          <h3>Управление интервалом</h3>
+          <p>Интервал можно изменить в настройках записи — интеграция сама перезагрузится, перезапускать Home Assistant не нужно.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ustanovka">
+      <h2>Установка</h2>
+
+      <div class="card wide">
+        <h3>С помощью Marketplace (HACS)</h3>
+        <ol class="steps">
+          <li>Перейдите в <strong>Настройки → Marketplace</strong>.</li>
+          <li>Нажмите <strong>«Добавить по ссылке»</strong>.</li>
+          <li>Введите <code>https://github.com/Type7178/ha-kursometr/</code></li>
+          <li>Перейдите в раздел <strong>«Просмотр»</strong> и введите «Курсометр».</li>
+          <li>Установите интеграцию (<strong>⋮ → Установить</strong>).</li>
+          <li>Перед вами должно открыться окно мастера настройки. Если оно не открылось, перейдите в <strong>Настройки → Устройства и службы → Добавить интеграцию</strong> и введите «Курсометр».</li>
+          <li>Нажмите <strong>«Добавить запись»</strong>. В окне укажите нужную валюту и время обновления в секундах (по умолчанию 3600 сек — 1 час).</li>
+          <li>Готово!</li>
+        </ol>
+        <p class="note">После настройки обновления будут прилетать через Marketplace сами при условии, что сервер HA подключён к сети Интернет. Для работы интеграции интернет тоже нужен.</p>
+      </div>
+
+      <div class="card wide">
+        <h3>Вручную <span class="badge">не рекомендуется</span></h3>
+        <ol class="steps">
+          <li>Скопируйте папку <code>custom_components/kursometr</code> в каталог конфигурации Home Assistant.</li>
+          <li>Перезагрузите Home Assistant.</li>
+          <li>Перейдите в <strong>Настройки → Устройства и службы → Добавить интеграцию</strong> и введите «Курсометр».</li>
+          <li>Выполните шаг 7 из способа 1.</li>
+        </ol>
+        <p class="note warning">Если вы установите интеграцию вторым способом, обновляться она не будет. Вам придётся обновлять её самому.</p>
+      </div>
+    </section>
+  <footer>
+    <div class="wrap">
+      <p><a href="https://github.com/Type7178/ha-kursometr">Исходный код</a> · <a href="https://github.com/Type7178/ha-kursometr/issues">Сообщить о проблеме</a></p>
+      <p>Часть кода интеграции создана с участием ИИ. Возможны баги.</p>
+    </div>
+  </footer>
+</body>
+</html>
